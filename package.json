@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pixi/react": "^8.0.5",
+    "pixi.js": "^8.15.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0",
     "vite-plugin-pwa": "^1.2.0",
-    "workbox-window": "^7.4.0"
+    "workbox-window": "^7.4.0",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
