@@ -1,0 +1,25 @@
+# LaserForge Implementation Tasks
+
+- [ ] **Phase 1: Foundation & Landing Page** <!-- id: 0 -->
+  - [ ] Initialize project structure (React + Vite + TypeScript) <!-- id: 1 -->
+  - [ ] Configure TailwindCSS for styling <!-- id: 2 -->
+  - [ ] Create Landing Page (Home, Features, CTA) <!-- id: 3 -->
+  - [ ] Setup GitHub Action for deploying to GitHub Pages <!-- id: 4 -->
+  - [ ] Configure Custom Domain (LaserForge.io) support in deployment <!-- id: 5 -->
+- [ ] **Phase 2: Core Architecture & PWA** <!-- id: 6 -->
+  - [ ] Configure PWA capabilities (Manifest, Service Worker) <!-- id: 7 -->
+  - [ ] Setup Canvas/WebGL environment (React-Three-Fiber or PixiJS) <!-- id: 8 -->
+  - [ ] Implement State Management (Zustand/Redux) <!-- id: 9 -->
+- [ ] **Phase 3: Hardware Communication (Web Serial)** <!-- id: 10 -->
+  - [ ] Implement Web Serial API Wrapper <!-- id: 11 -->
+  - [ ] Implement GRBL 1.1 Protocol Streaming <!-- id: 12 -->
+  - [ ] Build Machine Control Panel (Jog, Home, Console) <!-- id: 13 -->
+- [ ] **Phase 4: Design Engine** <!-- id: 14 -->
+  - [ ] Implement Vector Rendering Engine <!-- id: 15 -->
+  - [ ] Integrate WASM Libraries (Clipper2, Potrace) <!-- id: 16 -->
+  - [ ] Build Basic Drawing Tools (Select, Pen, Shape) <!-- id: 17 -->
+- [ ] **Phase 5: Advanced Features & Refinement** <!-- id: 18 -->
+  - [ ] Implement Image Rasterization/Dithering <!-- id: 19 -->
+  - [ ] Create Material Library (IndexedDB) <!-- id: 20 -->
+  - [ ] Add File System Access (Save/Open .lbrn or custom format) <!-- id: 21 -->
+  - [ ] Verify Offline Functionality <!-- id: 22 -->
