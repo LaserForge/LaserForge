@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Logo from '../components/Logo';
+import MachineControl from '../components/MachineControl';
+import ThemeToggle from '../components/ThemeToggle';
 
 export default function AppLayout() {
 	return (
@@ -30,9 +32,7 @@ export default function AppLayout() {
 						<span className="font-medium text-sm text-slate-500 dark:text-slate-400">Untitled Project</span>
 					</div>
 					<div className="flex items-center gap-2">
-						<button className="px-3 py-1.5 text-xs font-medium bg-brand-orange text-white rounded hover:bg-brand-orange/90 transition-colors">
-							Connect
-						</button>
+						<ThemeToggle />
 					</div>
 				</header>
 
@@ -42,15 +42,8 @@ export default function AppLayout() {
 				</main>
 			</div>
 
-			{/* Right Properties Panel */}
-			<aside className="w-72 bg-white dark:bg-zinc-800 border-l border-slate-200 dark:border-white/10 flex flex-col z-20 shadow-sm">
-				<div className="p-3 border-b border-slate-200 dark:border-white/10">
-					<h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Properties</h3>
-				</div>
-				<div className="p-4">
-					<p className="text-sm text-slate-400 italic">No selection</p>
-				</div>
-			</aside>
+			{/* Right Properties Panel / Machine Control */}
+			<MachineControl />
 		</div>
 	);
 }

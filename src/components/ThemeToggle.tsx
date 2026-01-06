@@ -1,35 +1,37 @@
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-	const [theme, setTheme] = useState(
-		localStorage.getItem('theme') ||
-		(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-	);
+	const [isDark, setIsDark] = useState(() => {
+		if (typeof localStorage !== 'undefined' && localStorage.theme) {
+			return localStorage.theme === 'dark';
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches;
+	});
 
 	useEffect(() => {
-		const root = window.document.documentElement;
-		if (theme === 'dark') {
-			root.classList.add('dark');
+		if (isDark) {
+			document.documentElement.classList.add('dark');
+			localStorage.theme = 'dark';
 		} else {
-			root.classList.remove('dark');
+			document.documentElement.classList.remove('dark');
+			localStorage.theme = 'light';
 		}
-		localStorage.setItem('theme', theme);
-	}, [theme]);
+	}, [isDark]);
 
 	return (
 		<button
-			onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-			className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
-			aria-label="Toggle Theme"
+			onClick={() => setIsDark(!isDark)}
+			className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-gray-800 dark:text-yellow-300"
+			title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
 		>
-			{theme === 'dark' ? (
+			{isDark ? (
 				// Sun Icon
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-slate-200 hover:text-white">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
 					<path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
 				</svg>
 			) : (
 				// Moon Icon
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-slate-700 hover:text-black">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
 					<path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
 				</svg>
 			)}
